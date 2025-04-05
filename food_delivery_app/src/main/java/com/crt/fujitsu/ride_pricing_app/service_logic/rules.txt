@@ -1,0 +1,41 @@
+REGULAR FEES:
+
+Tallinn:
+- Car, 4
+- Scooter, 3,5
+- Bike, 3
+
+Tartu:
+- Car, 3,5
+- Scooter, 3
+- Bike, 2,5
+
+Pärnu:
+- Car, 3
+- Scooter, 2,5
+- Bike, 2
+
+EXTRA FEES:
+
+Air Temperature (if scooter or bike):
+- if temperature (∞, -10C): ATEF = 1€
+- if temperature [-10C, 0C]: ATEF = 0.5€
+
+Wind Speed (if bike):
+- if wind speed [10m/s, 20m/s]: WSEF = 0.5€
+- if wind spped (20m/s, ∞): ERROR message “Usage of selected vehicle type is forbidden”
+
+Weather Phenomenon (if scooter or bike):
+- if related to snow or sleet: WPEF = 1€
+- if related to rain: WPEF = 0.5€
+- if related to glaze, hail, thunder: ERROR message “Usage of selected vehicle type is forbidden”
+
+NB!
+Extra fees for weather conditions are paid only for conditions listed above.
+Calculations must base on the latest weather data for a specific city.
+
+PRICE MULTIPLIER BASED ON TIME:
+
+- 07.00 - 09.00 and 16.00 - 19.00 -> price * 1.2
+- 00.00 - 05.00 -> price * 1.1
+- Otherwise -> price does not change - price * 1.0

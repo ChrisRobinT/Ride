@@ -1,0 +1,16 @@
+com/crt/fujitsu/ride_pricing_app/service_logic/ApiWeather.class
+com/crt/fujitsu/ride_pricing_app/service_logic/ExtraFeeCalculator.class
+com/crt/fujitsu/ride_pricing_app/service_logic/PricingService.class
+com/crt/fujitsu/ride_pricing_app/exception/ErrorResponse.class
+com/crt/fujitsu/ride_pricing_app/service_logic/RiskScoreCalculator.class
+com/crt/fujitsu/ride_pricing_app/config/RestTemplateConfig.class
+com/crt/fujitsu/ride_pricing_app/service_logic/RiskScoreCalculator$VehicleType.class
+com/crt/fujitsu/ride_pricing_app/model/WeatherData.class
+com/crt/fujitsu/ride_pricing_app/service_logic/RiskScoreCalculator$WeatherSeverity.class
+com/crt/fujitsu/ride_pricing_app/service_logic/PriceMultiplierCalculator.class
+com/crt/fujitsu/ride_pricing_app/repository/WeatherDataRepository.class
+com/crt/fujitsu/ride_pricing_app/controller/PricingController.class
+com/crt/fujitsu/ride_pricing_app/dto/RidePriceEstimate.class
+com/crt/fujitsu/ride_pricing_app/service_logic/BaseFeeCalculator.class
+com/crt/fujitsu/ride_pricing_app/RidePricingAppApplication.class
+com/crt/fujitsu/ride_pricing_app/exception/GlobalExceptionHandler.class

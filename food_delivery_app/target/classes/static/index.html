@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ride Price Calculator</title>
+  <style>
+    /* Basic styling for a clean, modern look */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #555555;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #007bff;
+      border: none;
+      color: #ffffff;
+      font-size: 1em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333333;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Ride Price Calculator</h1>
+  <form id="rideForm">
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" placeholder="e.g., Tallinn" required />
+
+    <label for="vehicle">Vehicle (Car, Bike, Scooter):</label>
+    <input type="text" id="vehicle" name="vehicle" placeholder="e.g., Car" required />
+
+    <label for="rideTime">Ride Time (ISO 8601 format):</label>
+    <input type="text" id="rideTime" name="rideTime" />
+
+    <button type="submit">Calculate Price</button>
+  </form>
+  <div id="result"></div>
+</div>
+
+<script>
+  // On page load, auto-populate the rideTime field with the current time.
+  document.addEventListener("DOMContentLoaded", function() {
+    const rideTimeField = document.getElementById("rideTime");
+    rideTimeField.value = new Date().toISOString();
+  });
+
+  document.getElementById("rideForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const city = document.getElementById("city").value;
+    const vehicle = document.getElementById("vehicle").value;
+    let rideTime = document.getElementById("rideTime").value;
+
+    // If rideTime is empty, use the current time in ISO format.
+    if (!rideTime) {
+      rideTime = new Date().toISOString();
+    }
+
+    // Build URL with query parameters (adjust the path if needed)
+    const url = `/ride-price?city=${encodeURIComponent(city)}&vehicle=${encodeURIComponent(vehicle)}&rideTime=${encodeURIComponent(rideTime)}`;
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText);
+      }
+      const data = await response.json();
+      document.getElementById("result").innerText =
+              `Final Price: €${data.finalPrice} | Risk Score: ${data.riskScore}`;
+    } catch (error) {
+      document.getElementById("result").innerText = "Error: " + error.message;
+    }
+  });
+</script>
+</body>
+</html>

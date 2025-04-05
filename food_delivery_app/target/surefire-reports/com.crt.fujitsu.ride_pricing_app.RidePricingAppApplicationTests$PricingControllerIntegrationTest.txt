@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests$PricingControllerIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.143 s <<< FAILURE! -- in com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests$PricingControllerIntegrationTest
+com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests$PricingControllerIntegrationTest.testGetRidePriceEndpoint_TallinnAndCar -- Time elapsed: 0.045 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Final price should match expected fee. ==> expected: <4.0> but was: <4.8>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:86)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1024)
+	at com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests$PricingControllerIntegrationTest.testGetRidePriceEndpoint_TallinnAndCar(RidePricingAppApplicationTests.java:513)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------------
+Test set: com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests$ApiWeatherIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! -- in com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests$ApiWeatherIntegrationTest
+com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests.testCalculateRidePrice_MaxWindSpeedBike -- Time elapsed: 0.063 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3.5> but was: <4.2>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:86)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:81)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1014)
+	at com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests.testCalculateRidePrice_MaxWindSpeedBike(RidePricingAppApplicationTests.java:208)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests.testCalculateRidePrice_ExtraFeeCalculation -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The ride price should match the expected value. ==> expected: <4.5> but was: <5.3999999999999995>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:86)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1024)
+	at com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests.testCalculateRidePrice_ExtraFeeCalculation(RidePricingAppApplicationTests.java:173)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests.testCalculateRidePrice_MissingPhenomenon -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3.5> but was: <4.2>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:86)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:81)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1014)
+	at com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests.testCalculateRidePrice_MissingPhenomenon(RidePricingAppApplicationTests.java:227)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests.testCalculateRidePrice_TallinnAndCar -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Fee should match expected ==> expected: <4.0> but was: <4.8>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:86)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1024)
+	at com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests.testCalculateRidePrice_TallinnAndCar(RidePricingAppApplicationTests.java:68)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests$ApiWeatherIntegrationTest.testImportWeatherData_success -- Time elapsed: 0.013 s <<< FAILURE!
+java.lang.AssertionError: Request URI expected:<http://api.weatherapi.com/v1/current.xml?key=20ac311827124d0ba50125028250404&q=Tallinn&aqi=no> but was:<http://api.weatherapi.com/v1/current.xml?key=20ac311827124d0ba50125028250404&aqi=no&q=Tallinn>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.web.client.match.MockRestRequestMatchers.lambda$requestTo$3(MockRestRequestMatchers.java:89)
+	at org.springframework.test.web.client.DefaultRequestExpectation.match(DefaultRequestExpectation.java:87)
+	at org.springframework.test.web.client.SimpleRequestExpectationManager.matchRequest(SimpleRequestExpectationManager.java:62)
+	at org.springframework.test.web.client.AbstractRequestExpectationManager.validateRequest(AbstractRequestExpectationManager.java:91)
+	at org.springframework.test.web.client.MockRestServiceServer$MockClientHttpRequestFactory$1.executeInternal(MockRestServiceServer.java:324)
+	at org.springframework.mock.http.client.MockClientHttpRequest.execute(MockClientHttpRequest.java:141)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:899)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:800)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:682)
+	at com.crt.fujitsu.ride_pricing_app.service_logic.ApiWeather.importWeatherData(ApiWeather.java:58)
+	at com.crt.fujitsu.ride_pricing_app.RidePricingAppApplicationTests$ApiWeatherIntegrationTest.testImportWeatherData_success(RidePricingAppApplicationTests.java:621)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
