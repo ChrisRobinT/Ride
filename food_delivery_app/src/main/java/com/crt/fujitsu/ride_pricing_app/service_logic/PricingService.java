@@ -23,10 +23,9 @@ public class PricingService {
     public PricingService(WeatherDataRepository weatherDataRepository) {
         this.weatherDataRepository = weatherDataRepository;
         cityToStationMap = new HashMap<>();
-        // Use the station names as returned by WeatherAPI.com:
         cityToStationMap.put("Tallinn", "Tallinn");
         cityToStationMap.put("Tartu", "Tartu");
-        cityToStationMap.put("Pärnu", "PÃ¤rnu");
+        cityToStationMap.put("Pärnu", "Pärnu");
     }
 
 
@@ -47,8 +46,8 @@ public class PricingService {
             throw new IllegalArgumentException("Unknown city: " + city);
         }
 
-        // After validation, fetch the weather data
-        WeatherData weatherData = weatherDataRepository.findTopByStationNameOrderByObservationTimestampDesc(city)
+        // Fetch weather data (station names are canonical: Tallinn, Tartu, Pärnu)
+        WeatherData weatherData = weatherDataRepository.findTopByStationNameOrderByObservationTimestampDesc(stationName)
                 .orElseThrow(() -> new NoWeatherDataException("No weather data available for city: " + city));
 
         // Calculate pricing

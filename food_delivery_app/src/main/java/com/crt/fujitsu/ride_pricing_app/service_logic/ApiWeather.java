@@ -43,14 +43,19 @@ public class ApiWeather {
     public void importWeatherData() {
         System.out.println("importWeatherData called");
         try {
-            // Define cities for which to import weather data
-            String[] cities = {"Tallinn", "Tartu_Estonia", "Pärnu"};
+            // City query -> canonical station name for DB (use lat,long for Pärnu to avoid encoding issues)
+            String[][] cityQueries = {
+                {"Tallinn", "Tallinn"},
+                {"Tartu_Estonia", "Tartu"},
+                {"58.3858,24.4971", "Pärnu"}  // Pärnu coordinates
+            };
             List<WeatherData> weatherDataList = new ArrayList<>();
             LocalDateTime observationTime = LocalDateTime.now();
 
-            for (String city : cities) {
-                // Build the URL dynamically for each city
-                String url = BASE_URL + city;
+            for (String[] cityEntry : cityQueries) {
+                String cityQuery = cityEntry[0];
+                String canonicalStationName = cityEntry[1];
+                String url = BASE_URL + cityQuery;
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.set("Accept", "application/xml");
@@ -62,20 +67,13 @@ public class ApiWeather {
                 // Parse the XML response
                 Document document = parseXmlString(xmlData);
 
-                // Default values in case elements are missing
-                String stationName = city; // Default to city name if location element is missing
+                // Use canonical name so lookups work regardless of API response encoding
+                String stationName = canonicalStationName;
                 Double airTemperature = null;
                 Double windSpeed = null;
                 String phenomenon = "";
 
-                // Extract location details (nested in <location>) - with null check
-                Element locationElement = getElementByTagName(document, "location");
-                if (locationElement != null) {
-                    String name = getElementTextContent(locationElement, "name");
-                    if (name != null && !name.isEmpty()) {
-                        stationName = name;
-                    }
-                }
+                // stationName uses canonical name for consistent DB lookups
 
                 // Extract current weather details (nested in <current>) - with null check
                 Element currentElement = getElementByTagName(document, "current");
